@@ -1,7 +1,15 @@
 ;; Turn off mouse interface early in startup to avoid momentary display
-(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+;(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+
+;; to prevent screen rendering is going bad in mountain lion
+(setq default-frame-alist
+'((width . 80)
+  (height . 40)
+  (menu-bar-lines . 1)
+  (vertical-scroll-bar . -1)))
+
 
 ;; No splash screen please ... jeez
 (setq inhibit-startup-message t)
@@ -66,6 +74,7 @@
    (cons 'gitconfig-mode melpa)
    (cons 'gitignore-mode melpa)
    (cons 'clojure-mode melpa)
+   (cons 'coffee-mode melpa)
    (cons 'nrepl melpa)))
 
 (condition-case nil

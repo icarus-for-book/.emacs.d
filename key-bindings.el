@@ -1,7 +1,7 @@
 ;; I don't need to kill emacs that easily
 ;; the mnemonic is C-x REALLY QUIT
-(global-set-key (kbd "C-x r q") 'save-buffers-kill-terminal)
-(global-set-key (kbd "C-x C-c") 'delete-frame)
+;;(global-set-key (kbd "C-x r q") 'save-buffers-kill-terminal)
+;;(global-set-key (kbd "C-x C-c") 'delete-frame)
 
 ;; Completion that uses many different methods to find options.
 (global-set-key (kbd "C-.") 'hippie-expand-no-case-fold)
@@ -23,20 +23,23 @@
 (global-set-key (kbd "C-S-c C-e") 'mc/edit-ends-of-lines)
 (global-set-key (kbd "C-S-c C-a") 'mc/edit-beginnings-of-lines)
 
+;; activate mark
+(global-set-key (kbd "C-#") 'set-mark-command)
+
 ;; Mark additional regions matching current region
-(global-set-key (kbd "M-æ") 'mc/mark-all-like-this-dwim)
-(global-set-key (kbd "C-å") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-æ") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-Æ") 'mc/mark-more-like-this-extended)
-(global-set-key (kbd "M-å") 'mc/mark-all-in-region)
+;(global-set-key (kbd "M-æ") 'mc/mark-all-like-this-dwim)
+;(global-set-key (kbd "C-å") 'mc/mark-previous-like-this)
+;(global-set-key (kbd "C-æ") 'mc/mark-next-like-this)
+;(global-set-key (kbd "C-Æ") 'mc/mark-more-like-this-extended)
+;(global-set-key (kbd "M-å") 'mc/mark-all-in-region)
 
 ;; Symbol and word specific mark-more
-(global-set-key (kbd "s-æ") 'mc/mark-next-word-like-this)
-(global-set-key (kbd "s-å") 'mc/mark-previous-word-like-this)
-(global-set-key (kbd "M-s-æ") 'mc/mark-all-words-like-this)
-(global-set-key (kbd "s-Æ") 'mc/mark-next-symbol-like-this)
-(global-set-key (kbd "s-Å") 'mc/mark-previous-symbol-like-this)
-(global-set-key (kbd "M-s-Æ") 'mc/mark-all-symbols-like-this)
+;(global-set-key (kbd "s-æ") 'mc/mark-next-word-like-this)
+;(global-set-key (kbd "s-å") 'mc/mark-previous-word-like-this)
+;(global-set-key (kbd "M-s-æ") 'mc/mark-all-words-like-this)
+;(global-set-key (kbd "s-Æ") 'mc/mark-next-symbol-like-this)
+;(global-set-key (kbd "s-Å") 'mc/mark-previous-symbol-like-this)
+;(global-set-key (kbd "M-s-Æ") 'mc/mark-all-symbols-like-this)
 
 ;; Extra multiple cursors stuff
 (global-set-key (kbd "C-~") 'mc/reverse-regions)
@@ -63,15 +66,15 @@
 (global-set-key (kbd "C-<f10>") 'menu-bar-mode)
 
 ;; Use shell-like backspace C-h, rebind help to F1
-(define-key key-translation-map [?\C-h] [?\C-?])
-(global-set-key (kbd "<f1>") 'help-command)
+;(define-key key-translation-map [?\C-h] [?\C-?])
+;(global-set-key (kbd "<f1>") 'help-command)
 
 ;; Transpose stuff with M-t
 (global-unset-key (kbd "M-t")) ;; which used to be transpose-words
 (global-set-key (kbd "M-t l") 'transpose-lines)
 (global-set-key (kbd "M-t w") 'transpose-words)
-(global-set-key (kbd "M-t s") 'transpose-sexps)
 (global-set-key (kbd "M-t p") 'transpose-params)
+(global-set-key (kbd "M-t s") 'transpose-sexps)
 
 ;; Change next underscore with a camel case
 (global-set-key (kbd "C-c C--") 'replace-next-underscore-with-camel)
@@ -129,7 +132,7 @@
 (global-set-key (kbd "C-x M-w") 'copy-current-file-path)
 
 ;; Window switching
-(windmove-default-keybindings) ;; Shift+direction
+;(windmove-default-keybindings) ;; Shift+direction
 (global-set-key (kbd "C-x -") 'rotate-windows)
 (global-set-key (kbd "C-x C--") 'toggle-window-split)
 (global-unset-key (kbd "C-x C-+")) ;; don't zoom like this
@@ -262,8 +265,7 @@
 (global-set-key (kbd "M-s s") 'git-grep-fullscreen)
 (global-set-key (kbd "M-s S") 'rgrep-fullscreen)
 
-;; Multi-occur
-(global-set-key (kbd "M-s m") 'multi-occur)
+;; Multi-occur(global-set-key (kbd "M-s m") 'multi-occur)
 (global-set-key (kbd "M-s M") 'multi-occur-in-matching-buffers)
 
 ;; Display and edit occurances of regexp in buffer
